@@ -1,11 +1,9 @@
 const lps = require('./lps');
-const pat = ['a','a', 'b', 'a', 'a','a', 'c'];
 
 function KMPSearch(pat, txt){
 	const n = txt.length;
 	const m = pat.length;
 	const lpsArray = lps.computeLpsArray(pat);
-	console.log("lpsArray", lpsArray);
 	let i = 0; //for text
 	let j = 0; //for pattern
 

@@ -29,5 +29,5 @@ function computeLpsArray(pat){
 }
 
 module.exports = {
-	computeLpsArray : computeLpsArray
+	computeLpsArray
 }
