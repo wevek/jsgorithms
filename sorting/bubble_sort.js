@@ -16,7 +16,7 @@ function swap(arr, ind1, ind2){
 	arr[ind1] = arr[ind1] - arr[ind2]; 
 }
 
-function bubbleSort(arr){
+function BubbleSort(arr){
 	for(let i = 0; i < arr.length; i++){
 		let noSwap = true;
 		for(let j = 0; j < arr.length - i; j++){
@@ -32,5 +32,6 @@ function bubbleSort(arr){
 	return arr;
 }
 
-const sorted = bubbleSort([22,1,45,6,3,2,1]);
-console.log(`Sorted array is ${sorted}`);
+module.exports = {
+	BubbleSort
+}

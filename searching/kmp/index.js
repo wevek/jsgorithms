@@ -24,7 +24,6 @@ function KMPSearch(pat, txt){
 	}
 }
 
-const txt = "onionionspl";
-const pattern = "onions";
-
-KMPSearch(pattern, txt);
+module.exports = {
+	KMPSearch
+}
