@@ -1,9 +1,9 @@
-import { computeLpsArray } from './lps'; 
+const lps = require('./lps');
 
 function KMPSearch(pat, txt){
 	const n = txt.length;
 	const m = pat.length;
-	const lpsArray = computeLpsArray(pat);
+	const lpsArray = lps.computeLpsArray(pat);
 	let i = 0; //for text
 	let j = 0; //for pattern
 
