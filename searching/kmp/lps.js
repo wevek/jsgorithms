@@ -1,6 +1,6 @@
 //to compute the lps 'longest proper prefix which is also suffix'
 
-function computeLpsArray(pat){
+export function computeLpsArray(pat){
 	let i = 0;
 	let j = 1;
 	const len = pat.length;
