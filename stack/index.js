@@ -38,7 +38,7 @@ class Stack{
 		return node.val;
 	}
 
-	size(){
+	get length(){
 		return this.size;
 	}
 

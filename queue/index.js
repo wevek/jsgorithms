@@ -40,7 +40,7 @@ class Queue{
 
 	}
 
-	size(){
+	get length(){
 		return this.size;
 	}
 }
