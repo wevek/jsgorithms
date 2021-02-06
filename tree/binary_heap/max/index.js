@@ -31,11 +31,12 @@ class MaxBinaryHeap{
 	}
 
 	extractMax(){
-		if(!this.values.length) return null;
 		const max = this.values[0]; 
-		this.values[0] = this.values.pop();
-		this.bubbleDown();
-		return max;
+		const end = this.values.pop();
+		if(this.values.length > 0){
+			this.values[0] = end;
+			this.bubbleDown();			
+		}
 	}
 
 	bubbleDown(){

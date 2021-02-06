@@ -1,64 +1,63 @@
-/* 
-* we push the element in the end and bubble it down
-* parent index is floor of (n -1)/2
-* they can be used for scheduling
-* example : if you want to push and queue music songs and pick them one by one based on time they are requested
-* in MinBinaryHeap the first element has the min value
-*/
-class MinBinaryHeap{
+class Node{
+	constructor(val, priority){
+		this.val = val;
+		this.priority = priority;
+	}
+}
+
+class PriorityQueue{
 	constructor(){
 		this.values = [];
 	}
 
-	insert(val){
-		this.values.push(val);
-		this.bubbleDown();
-		return this;
+	enqueue(val, priority){
+		let node = new Node(val, priority);
+		this.values.push(node);
+		this.bubbleUp();
 	}
 
-	bubbleDown(){
+	bubbleUp(){
 		if(!this.values.length) return;
 		let index = this.values.length - 1;
 		const element = this.values[index];
 		while(index > 0){
 			let parentIndex = Math.floor((index - 1) / 2);
 			const parent = this.values[parentIndex];
-			if(element >= parent) break;
+			if(element.priority <= parent.priority) break;
 			this.values[parentIndex] = element;
 			this.values[index] = parent;
 			index = parentIndex;
 		}
 	}
 
-	extractMin(){
+	dequeue(){
 		const max = this.values[0]; 
 		const end = this.values.pop();
 		if(this.values.length > 0){
 			this.values[0] = end;
 			this.bubbleDown();			
 		}
-		return min;
+		return max;
 	}
 
-	bubbleUp(){
-		if(!this.values.length) return;
+	bubbleDown(){
 		let index = 0;
 		let length = this.values.length;
 		const element = this.values[index];
-		while(index < this.values.length){
+		while(true){
 			const lIndex = (2 * index) + 1;
 			const rIndex = (2 * index) + 2;
 			let lChild, rChild;
 			let swap = null;
 			if(lIndex < length){
 				lChild = this.values[lIndex];
-				if(lChild < element){
+				if(lChild.priority > element.priority){
 					swap = lIndex;
 				}
 			}
 			if(rIndex < length){
 				rChild = this.values[rIndex];
-				if((swap === null && rChild < element) || (swap !== null && rChild < lChild)){
+				if((swap === null && rChild.priority > element.priority) || (swap !== null && rChild.priority > lChild.priority)){
 					swap = rIndex;
 				}
 			}
@@ -74,5 +73,5 @@ class MinBinaryHeap{
 }
 
 module.exports = {
-	MinBinaryHeap
+	PriorityQueue
 }
